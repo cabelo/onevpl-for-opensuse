@@ -1,0 +1,46 @@
+-------------------------------------------------------------------
+Wed Oct 12 03:51:27 UTC 2022 - Alessandro de Oliveira Faria <cabelo@opensuse.org>
+
+- Update to 2022.2.0:
+  * Support for 2.7 API
+     - GPU copy improvements:
+       . Experimental DeviceCopy option for GPU-accelerated surface copying.
+       . Selection of host or device responsible for the memory copy between host and device.
+  * MFX_FOURCC_XYUV FourCC for non-alpha packed 4:4:4 format.
+  * Notice to mfxFrameSurfaceInterface::OnComplete to clarify when library can call this callback.
+  * Pass through extension buffer to mfxInitializationParam via config filter property.
+  * Interface to get statistics after encode to Experimental API
+  * Support for Alder Lake N and Intel® Data Center GPU Flex Series (formerly Arctic Sound-M).
+  * Added Linux system_analyzer tool for improved runtime environment visibility.
+  - Changed
+  * Sample_multi_transcode to support HDR 3DLUT, SDR->HDR, VDSFC color conversion, improved tracer and latency measurement, AV1 temporal layers, HVS denoise.
+  - Depreciated
+  * Support for Microsoft Visual Studio* 2017
+  * Current C++/Python preview APIs. (A different direction will be taken in future releases.)
+  - Fixed
+  * Multiple SYCL deprecation warnings when compiling dpcpp-blur
+  * Sample readmes out of sync with current cmake and docker
+  * Not turning off tools/examples build when BUILD_DISPATCHER_ONLY=ON
+  * Tools failing to build on SLES if ENABLE_WAYLAND=ON
+  * Build fails against libva installed at custom location
+  * License reported by CPU implementation not matching compile
+  * Unclear error when advanced-decvpp-infer runs on unsupported platform
+  * Incomplete Linux instructions for dpcpp-blur sample
+  * Outdated OpenVINO path in interop Samples README
+  * dpcpp-blur sample not returning clear error when build attempted on unsupported operating systems
+  * MFXEnumImplementation not returning MFX_ERR_NOT_FOUND on non-Intel systems
+  * Sample_multi_transcode reporting error when multiline parfile uses -sw flag
+  * Legacy tools requiring libva-drm.so.2 when run in SW mode.
+  * Inability to enable experimental features for legacy tools on Windows.
+  * Non-determinism in build behavior depending on machine configuration. Note that building tools from source will now require additional dependencies instead of quietly proceeding with indeterminate results.
+  * oneVPL 2022.2.0 has been updated to include functional and security updates. Users should update to the latest version.
+-------------------------------------------------------------------
+Tue Sep 27 23:21:23 UTC 2022 - Alessandro de Oliveira Faria <cabelo@opensuse.org>
+
+- Created package libvpl  version 2022.1.0
+  * Updated oneVPL dispatcher to support API 2.6
+  * Added ONEVPL_PRIORITY_PATH for RT loading
+  * Extended multi-adapter to support most combinations of GPU hardware that works with Intel(R) Media SDK and oneVPL
+  * Updated documentation on working with multiple adapters using 2.x API
+  * Added support for extended device ID on legacy GPUs
+  * Added support for Intel® Arc A Series Graphics
